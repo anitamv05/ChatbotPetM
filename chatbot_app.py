@@ -4,18 +4,13 @@ from sentence_transformers import SentenceTransformer
 import faiss
 import numpy as np
 import json
-import os
-from dotenv import load_dotenv  # Import the dotenv library
 
-# Load environment variables from .env file
-load_dotenv()
-
-# Get OpenAI API key from the .env file
-openai_api_key = os.getenv('OPENAI_API_KEY')
+# Load the API key from Streamlit secrets
+openai_api_key = st.secrets["OPENAI_API_KEY"]
 
 # Initialize the OpenAI client with the API key
 client = openai.OpenAI(
-    api_key=openai_api_key  # Use the API key from the environment variable
+    api_key=openai_api_key
 )
 
 # Load the SentenceTransformer model for embeddings

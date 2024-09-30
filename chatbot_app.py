@@ -5,9 +5,10 @@ import faiss
 import numpy as np
 import json
 
-# Load the API key from Streamlit secrets
-openai_api_key = st.secrets["OPENAI_API_KEY"]
 
+# Load the API key from Streamlit secrets
+openai_api_key = st.secrets["general"]["OPENAI_API_KEY"]
+openai.api_key = openai_api_key
 # Initialize the OpenAI client with the API key
 client = openai.OpenAI(
     api_key=openai_api_key
